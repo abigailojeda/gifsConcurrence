@@ -1,0 +1,21 @@
+<section class="search-cont">
+  <form class="flex">
+    <input
+      [(ngModel)]="category"
+      [ngModelOptions]="{ standalone: true }"
+      [disabled]="isLoading"
+      type="text"
+      placeholder="Insert a category, e.g:cats"
+    />
+    <button  *ngIf="category" (click)="setCategories()" type="submit">Add</button>
+  </form>
+  <div class="categories-cont">
+    <span *ngFor="let category of categories; index as i">
+      {{ category }}{{ i < categories.length - 1 ? "," : "" }}
+    </span>
+  </div>
+  <div class="options-cont">
+    <button class="search" *ngIf="categories.length" (click)="emitGetGifs()">Search</button>
+    <button class="reset" *ngIf="categories.length" (click)="reset()">Reset</button>
+  </div>
+</section>

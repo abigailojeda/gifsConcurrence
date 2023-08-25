@@ -1,0 +1,22 @@
+<app-gifs-search
+  [isLoading]="isLoading"
+  (resetList)="reset()"
+  (getGifs)="getGifs($event)"
+></app-gifs-search>
+
+<div *ngIf="isLoading" class="container">
+  <app-loading></app-loading>
+</div>
+
+<div *ngIf="results.length && !empty && !isLoading" class="container">
+  <app-gifs-list
+    *ngFor="let gifs of results.reverse()"
+    [list]="gifs"
+  ></app-gifs-list>
+</div>
+<div *ngIf="!results.length && !empty && !isLoading" class="container">
+  <app-empty></app-empty>
+</div>
+<div *ngIf="empty && !isLoading" class="container">
+  <app-error></app-error>
+</div>

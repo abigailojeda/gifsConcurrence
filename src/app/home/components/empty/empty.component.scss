@@ -1,0 +1,21 @@
+.img-cont {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 50px;
+
+  img {
+   // width: 50%;
+    width: 350px;
+  }
+
+  h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 25px;
+    width: 80%;
+  }
+}
